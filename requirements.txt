@@ -3,4 +3,5 @@ groq
 edge_tts
 SpeechRecognition
 soundfile
+gunicorn
 numpy

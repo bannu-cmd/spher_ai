@@ -1,0 +1,67 @@
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#sphere {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    /* This gradient creates the 3D 'Orbe' look */
+    background: radial-gradient(circle at 30% 30%, #4facfe 0%, #00f2fe 40%, #000 100%);
+    box-shadow: 0 0 50px rgba(79, 172, 254, 0.5);
+    transition: transform 0.3s ease;
+    animation: rotateColors 8s infinite linear;
+}
+
+#sphere:hover {
+    transform: scale(1.05);
+}
+
+/* Animation to change colors like a living AI */
+@keyframes rotateColors {
+    0% { filter: hue-rotate(0deg); box-shadow: 0 0 50px rgba(79, 172, 254, 0.5); }
+    50% { filter: hue-rotate(180deg); box-shadow: 0 0 80px rgba(254, 79, 242, 0.6); }
+    100% { filter: hue-rotate(360deg); box-shadow: 0 0 50px rgba(79, 172, 254, 0.5); }
+}
+
+/* Pulse effect when the AI is "listening" */
+.listening {
+    animation: pulse 1.5s infinite !important;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.light-reflection {
+    width: 40px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    transform: rotate(-30deg);
+}
+.thinking {
+    animation: jitter 0.2s infinite;
+    filter: hue-rotate(90deg) brightness(1.5);
+}
+
+@keyframes jitter {
+    0% { transform: translate(0,0); }
+    25% { transform: translate(2px, -2px); }
+    50% { transform: translate(-2px, 2px); }
+    75% { transform: translate(2px, 2px); }
+    100% { transform: translate(0,0); }
+}
